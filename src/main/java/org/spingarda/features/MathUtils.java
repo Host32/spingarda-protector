@@ -11,7 +11,11 @@ import java.util.List;
 public class MathUtils {
 
     public Double calcAvg(List<Double> list) {
-        return list.stream().mapToDouble(d -> d).average().getAsDouble();
+        try {
+            return list.stream().mapToDouble(d -> d).average().getAsDouble();
+        } catch (Exception e) {
+            return 0.0;
+        }
     }
 
     public Double calcVariation(List<Double> list) {
