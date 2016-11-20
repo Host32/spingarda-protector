@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Facebook</title>
+</head>
+<body>
+<div>
+    <h3>Suas paginas:</h3>
+    <ul>
+        <li th:each="account, stat : ${accounts}">
+            <span th:text="${account.name}"></span>: <span th:text="${account.id}"></span>
+        </li>
+    </ul>
+</div>
+
+<form method="POST" th:action="@{/}" th:object="${protectorParams}">
+    <div>
+        <label>Pagina (Insira o ID numerico):</label>
+        <input name="page" type="text"/>
+    </div>
+    <div>
+        <label>Checar comentarios dos comentarios (tempo de execucao aumenta significativamente):</label>
+        <input name="commentsInComments" type="checkbox"/>
+    </div>
+    <div>
+        <label>Executar repetidamente:</label>
+        <input name="keepRunning" type="checkbox"/>
+    </div>
+    <div>
+        <label>Intervalo entre execucoes:</label>
+        <input name="keepRunningInterval" type="number"/>
+    </div>
+    <div>
+        <strong>Filtros de postagens</strong>
+    </div>
+    <div>
+        <label>Comecar a partir de:</label>
+        <input name="postsOffset" value="0" type="number"/>
+    </div>
+    <div>
+        <label>Limite:</label>
+        <input name="postsLimit" value="100" max="100" type="number"/>
+    </div>
+    <div>
+        <strong>Filtros de comentarios</strong>
+    </div>
+    <div>
+        <label>Comecar a partir de:</label>
+        <input name="commentsOffset" value="0" type="number"/>
+    </div>
+    <div>
+        <label>Limite:</label>
+        <input name="commentsLimit" value="1000" type="number"/>
+    </div>
+    <div>
+        <strong>Regras de remocao</strong>
+    </div>
+    <div>
+        <label>Selecione o que fazer com os comentarios removidos:</label>
+        <div>
+            <input name="hideOrDel" type="radio" value="hide"/> Ocultar
+        </div>
+        <div>
+            <input name="hideOrDel" type="radio" value="del"/> Apagar
+        </div>
+        <div>
+            <input name="hideOrDel" checked="checked" type="radio" value="debug"/> Apenas exibir no log
+        </div>
+    </div>
+    <div>
+        <label>Limite de comentarios (Preencher este campo fara com que todos os comentarios de usuarios que comentaram
+            mais do que o valor informado sejam removidos):</label>
+        <input name="commentsNumber" type="number"/>
+    </div>
+    <div>
+        <label>Limite de postagens comentadas (Preencher este campo fara com que todos os comentarios
+            de usuarios que comentaram em mais posts do que o valor informado sejam removidos):</label>
+        <input name="postsCommentedNumber" type="number"/>
+    </div>
+    <div>
+        <label>Limite de comentarios por postagem (Preencher este campo fara com que todos os comentarios de usuarios
+            que comentaram em media mais comentarios por postagem do que o valor informado sejam removidos):</label>
+        <input name="commentsByPost" type="number"/>
+    </div>
+    <div>
+        <label>Limite de de variacao do intervalo de tempo entre comentarios:</label>
+        <input name="lowerCommentInterval" type="number"/>
+    </div>
+    <div>
+        <label>Porcentagem de comentarios abaixo do tempo minimo:</label>
+        <input name="lowerCommentIntervalRate" type="number"/>
+    </div>
+    <div>
+        <label>Coeficiente de variacao entre os intervalos dos comentarios:</label>
+        <input name="commentIntervalVariation" type="number"/>
+    </div>
+    <div>
+        <label>Palavras proibidas (os comentarios que tiverem as palavras abaixo serao removido, separe as palavras por
+            virgula):</label>
+        <input name="blockedWords" type="text"/>
+    </div>
+    <div>
+        <label>ID's dos usuários banidos (separe os id's por virgula):</label>
+        <input name="bannedUsers" type="text"/>
+    </div>
+
+    <div>
+        <button type="submit">Iniciar</button>
+    </div>
+</form>
+<a href="/log">Log</a>
+</body>
+</html>

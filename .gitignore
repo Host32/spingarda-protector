@@ -1,0 +1,37 @@
+#maven specific
+dist/
+build/
+target/
+
+#netbeans specific
+core
+nbproject/*
+!nbproject/project.properties
+!nbproject/project.xml
+
+#eclipse specific
+.project
+.settings/
+.classpath
+
+#intelij specific
+.idea/**/*
+*.iml
+
+#java specific
+*.class
+
+#general swap/backup files
+.mvn/**/*
+*.so
+*.log
+*.out
+*~
+*.swp
+*.DS_Store
+*.lock
+
+git_commands.txt
+
+#generated HTML5
+src/main/resources/static/**/*
