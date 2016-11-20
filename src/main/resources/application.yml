@@ -3,6 +3,3 @@ spring:
     facebook:
       appId: 321121601602771
       appSecret: 8e582919991762af8cd5b2b6a697a81f
-
-server:
-  port: 8081
