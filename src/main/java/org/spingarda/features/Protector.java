@@ -60,6 +60,7 @@ public class Protector {
 
                 if (params.getKeepRunning() != null && params.getKeepRunning()) {
                     Thread.sleep(params.getKeepRunningInterval());
+                    setLog("");
                 }
             } while (params.getKeepRunning() != null && params.getKeepRunning());
 
